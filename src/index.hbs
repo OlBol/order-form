@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <form class="form js-form" action="">
+        <form class="form js-form" action="address" method="post">
             <div class="form__wrapper">
                 <label class="form__label" for="date">Выберите дату:</label>
                 <input class="form__field form__field--input js-date-input" id="date" type="text" name="date" autocomplete="off">
@@ -33,33 +33,30 @@
             <div class="form__wrapper">
                 <label class="form__label" for="count">Выберите количество билетов:</label>
                 <div class="form__field-wrapper">
-                    <button class="form__number-btn form__number-btn--minus" type="button" aria-label="Уменьшить количество билетов на один">-</button>
-                    <input id="count" class="form__field form__field--number" type="number" value="0">
-                    <button class="form__number-btn form__number-btn--plus" type="button" aria-label="Увеличить количество билетов на один">+</button>
+                    <button class="form__number-btn form__number-btn--minus js-minus-ticket-btn" type="button" aria-label="Уменьшить количество билетов на один" disabled>-</button>
+                    <input id="count" class="form__field form__field--number js-number-of-tickets" type="text" value="0">
+                    <button class="form__number-btn form__number-btn--plus js-plus-ticket-btn" type="button" aria-label="Увеличить количество билетов на один">+</button>
                 </div>
             </div>
 
             <div class="form__wrapper">
                 <label class="form__label" for="name">Введите ваше имя и фамилию:</label>
                 <input id="name" class="form__field form__field--input js-input" type="text" placeholder="Ольга Болотова" name="name">
-                <div class="form__error"></div>
             </div>
 
             <div class="form__wrapper">
                 <label class="form__label" for="phone">Введите номер мобильного телефона:</label>
                 <input id="phone" class="form__field form__field--input js-input" type="text" placeholder="+7 981 816 98 62" name="phone">
-                <div class="form__error"></div>
             </div>
             <div class="form__wrapper form__wrapper--consent">
-                <label for="consent" class="form__label form__label--consent">Я соглашаюсь с пользовательским соглашением.</label>
                 <input id="consent" class="form__checkbox js-input" type="checkbox" name="checkbox">
-                <div class="form__error"></div>
+                <label for="consent" class="form__label form__label--consent">Вы согласны с пользовательским соглашением.</label>
             </div>
 
-            <p>Итоговое количество билетов:</p>
-            <p>Итоговая сумма билетов:</p>
+            <p>Итоговое количество билетов: <span class="js-count-of-ticket">0</span></p>
+            <p>Итоговая сумма билетов: <span class="js-sum-of-ticket">0</span></p>
 
-            <button type="submit">Купить</button>
+            <button class="form__submit-btn" type="submit">Купить</button>
         </form>
     </div>
 </body>

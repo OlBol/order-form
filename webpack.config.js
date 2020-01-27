@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = (env, argv) => {
     const isProductionBuild = argv.mode === 'production';
@@ -27,6 +28,20 @@ module.exports = (env, argv) => {
         loader: 'handlebars-loader'
     };
 
+    const svg = {
+        test: /\.svg$/,
+        use: [
+            {
+                loader: 'svg-sprite-loader',
+                options: {
+                    extract: true,
+                    spriteFilename: svgPath => `sprite${svgPath.substr(-4)}`
+                }
+            },
+            'svg-transform-loader', 'svgo-loader'
+        ]
+    };
+
     const config = {
         entry: './src/main.js',
 
@@ -42,7 +57,7 @@ module.exports = (env, argv) => {
         devtool: 'source-map',
 
         module: {
-            rules: [js, handlebars, css]
+            rules: [js, handlebars, css, svg]
         },
 
         plugins: [
@@ -50,6 +65,7 @@ module.exports = (env, argv) => {
                 title: 'Портфолио',
                 template: './src/index.hbs'
             }),
+            new SpriteLoaderPlugin({ plainSprite: true })
         ]
     };
 

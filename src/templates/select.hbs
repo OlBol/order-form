@@ -1,0 +1,8 @@
+<div class="form__wrapper js-choose-time-group js-choose-time" data-time-group="{{ this.direction }}">
+    <label class="form__label" for="">Выберите время:</label>
+    <select class="form__field form__field--select" name="timeToA" id="">
+        {{#each this.time}}
+            <option value="{{ this }}">{{ this }}</option>
+        {{/each}}
+    </select>
+</div>
