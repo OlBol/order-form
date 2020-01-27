@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NevaTrip test project</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <form class="form js-form" action="">
+            <div class="form__wrapper">
+                <label class="form__label" for="date">Выберите дату:</label>
+                <input class="form__field form__field--input js-date-input" id="date" type="text" name="date" autocomplete="off">
+            </div>
+
+            <div class="form__wrapper js-direction-wrapper">
+                <label class="form__label" for="direction">Выберите направление:</label>
+                <select class="form__field form__field--select js-choose-direction" name="direction" id="direction">
+                    <option value="из A в B" data-direction="fromAtoB">из A в B</option>
+                    <option value="из B в A" data-direction="fromBtoA">из B в A</option>
+                    <option value="из A в B и обратно в А" data-direction="fromAtoB fromBtoA">из A в B и обратно в А</option>
+                    <option value="из B в A и обратно в А" data-direction="fromBtoA fromAtoB">из B в A и обратно в B</option>
+                </select>
+            </div>
+
+            <p>Время в пути в одну сторону 2 часа 5 минут.<br>
+                Стоимость одного билета 700 рублей.<br>
+                Стоимость составного билета в обе стороны 1200 рублей.</p>
+
+            <div class="form__wrapper">
+                <label class="form__label" for="count">Выберите количество билетов:</label>
+                <div class="form__field-wrapper">
+                    <button class="form__number-btn form__number-btn--minus" type="button" aria-label="Уменьшить количество билетов на один">-</button>
+                    <input id="count" class="form__field form__field--number" type="number" value="0">
+                    <button class="form__number-btn form__number-btn--plus" type="button" aria-label="Увеличить количество билетов на один">+</button>
+                </div>
+            </div>
+
+            <div class="form__wrapper">
+                <label class="form__label" for="name">Введите ваше имя и фамилию:</label>
+                <input id="name" class="form__field form__field--input js-input" type="text" placeholder="Ольга Болотова" name="name">
+                <div class="form__error"></div>
+            </div>
+
+            <div class="form__wrapper">
+                <label class="form__label" for="phone">Введите номер мобильного телефона:</label>
+                <input id="phone" class="form__field form__field--input js-input" type="text" placeholder="+7 981 816 98 62" name="phone">
+                <div class="form__error"></div>
+            </div>
+            <div class="form__wrapper form__wrapper--consent">
+                <label for="consent" class="form__label form__label--consent">Я соглашаюсь с пользовательским соглашением.</label>
+                <input id="consent" class="form__checkbox js-input" type="checkbox" name="checkbox">
+                <div class="form__error"></div>
+            </div>
+
+            <p>Итоговое количество билетов:</p>
+            <p>Итоговая сумма билетов:</p>
+
+            <button type="submit">Купить</button>
+        </form>
+    </div>
+</body>
+</html>
