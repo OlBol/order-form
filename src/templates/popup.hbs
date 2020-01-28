@@ -1,6 +1,19 @@
 <div class="popup js-popup">
     <div class="popup__wrapper js-popup-wrapper">
         <button class="popup__close-btn js-close-popup" type="button" area-label="Закрыть окно"></button>
-        <p class="popup__text">{{ this }}</p>
+        <h2>О вашем заказе</h2>
+        <div>Ваше имя: {{ this.name }}</div>
+        <div>Контактный номер: {{ this.phone }}</div>
+        <div>Направление путешествия: {{ this.direction }}</div>
+        <div>Дата: {{ this.date }}</div>
+        <div>Время: {{ this.timeToA }}</div>
+        <div>
+            {{#if this.timeToB}}
+                Время обратного пути: {{ this.timeToB }}
+            {{/if}}
+        </div>
+        <div>Количество блетов: {{ this.countOfTickets }}</div>
+
+        <div>Благодарим вас за покупку!</div>
     </div>
 </div>

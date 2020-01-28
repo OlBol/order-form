@@ -161,13 +161,13 @@
     padding: 30px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     border-radius: 5px;
     box-shadow:  0 0 20px 2px #ccc;
     background-color: #fff;
 }
 
 .popup__close-btn {
+    align-self: flex-end;
     position: relative;
     height: 23px;
     width: 23px;

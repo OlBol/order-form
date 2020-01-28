@@ -37,7 +37,6 @@ export default function sendForm() {
     });
 
     function submitForm() {
-        console.log(true)
         const formData = new FormData(form);
 
         fetch(form.action, {
@@ -48,9 +47,17 @@ export default function sendForm() {
             .then(response => {
                 if (response.ok) {
                     response.json();
-                    popup("Форма успешно отправлена!");
+                    popup(formData);
                 } else {
-                    popup("Отправка формы не удалась! Попробуйте позже, пожалуйста.");
+                    popup({
+                        "name": formData.get('name'),
+                        "phone": formData.get('phone'),
+                        "direction": formData.get('direction'),
+                        "timeToA": formData.get('timeToA'),
+                        "timeToB": formData.get('timeToB'),
+                        "date": formData.get('date'),
+                        "countOfTickets": formData.get('countOfTickets'),
+                    });
                 }
             })
             .then(() => clearForm())
