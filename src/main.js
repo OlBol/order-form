@@ -3,8 +3,10 @@ import './styles/datepicker.min.css';
 
 import sendForm from './scripts/sendForm';
 import addTimeTemplate from './scripts/addTimeTemplate';
-import workWithFields from './scripts/workWithFields';
+import WorkWithFields from './scripts/workWithFields';
 
-workWithFields();
+const workWithFields = new WorkWithFields();
+workWithFields.init();
+
 addTimeTemplate();
 sendForm();
