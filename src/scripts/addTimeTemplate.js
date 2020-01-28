@@ -59,7 +59,11 @@ export default function addTimeTemplate() {
 
             if (arrivalTime > timeTo.options[i].value) {
                 timeTo.options[i].style.display = 'none';
-                timeTo.value = timeTo.options[i + 1].value;
+                if (timeTo.options[i + 1]) {
+                    timeTo.value = timeTo.options[i + 1].value;
+                } else {
+                    timeTo.value = '';
+                }
             }
         }
     }
