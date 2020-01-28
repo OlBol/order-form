@@ -6,10 +6,13 @@
         <div>Контактный номер: {{ this.phone }}</div>
         <div>Направление путешествия: {{ this.direction }}</div>
         <div>Дата: {{ this.date }}</div>
-        <div>Время: {{ this.timeToA }}</div>
+        <div>
+            {{#if this.timeToA}}
+                Время (по московскому часовому поясу): {{ this.timeToA }}</div>
+            {{/if}}
         <div>
             {{#if this.timeToB}}
-                Время обратного пути: {{ this.timeToB }}
+                Время обратного пути (по московскому часовому поясу): {{ this.timeToB }}
             {{/if}}
         </div>
         <div>Количество блетов: {{ this.countOfTickets }}</div>

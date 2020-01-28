@@ -1,6 +1,6 @@
 <div class="form__wrapper js-choose-time-group js-choose-time" data-time-group="{{ this.direction }}">
     <label class="form__label" for="{{ this.direction }}">Выберите время для маршрута из {{ this.from }} в {{ this.to }}:</label>
-    <select class="form__field form__field--select" name="timeToA" id="{{ this.direction }}">
+    <select class="form__field form__field--select" name="timeTo{{ this.to }}" id="{{ this.direction }}">
         {{#each this.time}}
             <option value="{{ this }}">{{ this }}</option>
         {{/each}}

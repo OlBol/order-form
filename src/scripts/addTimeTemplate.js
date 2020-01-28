@@ -33,6 +33,10 @@ export default function addTimeTemplate() {
             for (const item of direction.split(" ")) {
                 insertTimeOptions(data[item]);
             }
+
+            const select = document.querySelectorAll(`.js-choose-time-group[data-time-group] select`);
+
+            changeTimeRange(select[0], select[1]);
         } else {
             flag = 1;
 
@@ -43,21 +47,20 @@ export default function addTimeTemplate() {
     function insertTimeOptions(direction) {
         const html = selectTemplate(direction);
         chooseDirectionWrapper.insertAdjacentHTML('afterend', html);
-        const select = document.querySelector(`.js-choose-time-group[data-time-group='${direction.direction}'] select`);
-
-        // select.addEventListener('input', function() {
-        //     // checkTime();
-        //     if (flag === 2) {
-        //         const index = this.options.selectedIndex;
-        //         const value = this.options[index].value;
-        //         console.log(new Date(value));
-        //     }
-        // });
     }
 
-    // function checkTime() {
-    //     console.log(this);
-    // }
+    function changeTimeRange(timeFrom, timeTo) {
+        timeFrom.addEventListener('input', ()=> {
+
+            for (const item of timeTo.options) {
+                item.style.display = 'block';
+
+                if (timeFrom.value > item.value) {
+                    item.style.display = 'none';
+                }
+            }
+        });
+    }
 
     chooseTimeGroup();
 }

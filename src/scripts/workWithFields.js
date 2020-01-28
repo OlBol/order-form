@@ -14,7 +14,7 @@ export default class workWithFields{
         });
 
         this.minusTicketBtn.addEventListener('click', e => {
-            if (this.numberOfTickets.value > 0) {
+            if (this.numberOfTickets.value > 1) {
                 this.numberOfTickets.value -= 1;
                 this.plusTicketBtn.disabled = false;
                 this.calculateTicketPrices();

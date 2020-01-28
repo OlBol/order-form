@@ -45,25 +45,41 @@ export default function sendForm() {
             body: formData
         })
             .then(response => {
+                const obj = getFormData(formData);
+
                 if (response.ok) {
                     response.json();
-                    popup(formData);
+                    popup(obj);
                 } else {
-                    popup({
-                        "name": formData.get('name'),
-                        "phone": formData.get('phone'),
-                        "direction": formData.get('direction'),
-                        "timeToA": formData.get('timeToA'),
-                        "timeToB": formData.get('timeToB'),
-                        "date": formData.get('date'),
-                        "countOfTickets": formData.get('countOfTickets'),
-                    });
+                    popup(obj);
                 }
             })
             .then(() => clearForm())
             .catch(error => {
-                popup(error);
+                const obj = getFormData(formData);
+                popup(obj);
             });
+    }
+
+    function getFormData(formData) {
+        // const date = formData.get('date');
+        // const dateArray = date.split('.');
+        // const timeToA = formData.get('timeToA');
+        // const timeToB = formData.get('timeToB');
+        // const dateToA = new Date(`${dateArray[2]}-${dateArray[1]}-${dateArray[0]}T${timeToA}:00`);
+        // const dateToB = new Date(`${dateArray[2]}-${dateArray[1]}-${dateArray[0]}T${timeToB}:00`);
+        // const newTimeToA = dateToA.getHours() + 3 + ':' + dateToA.getMinutes();
+        // const newTimeToB = dateToB.getHours() + 3 + ':' + dateToB.getMinutes() + '0';
+
+        return {
+            "name": formData.get('name'),
+            "phone": formData.get('phone'),
+            "direction": formData.get('direction'),
+            "timeToA": formData.get('timeToA'),
+            "timeToB": formData.get('timeToB'),
+            "date": formData.get('date'),
+            "countOfTickets": formData.get('countOfTickets'),
+        };
     }
 
     function clearForm() {
