@@ -37,6 +37,7 @@ export default function addTimeTemplate() {
             const select = document.querySelectorAll(`.js-choose-time-group[data-time-group] select`);
 
             changeTimeRange(select[0], select[1]);
+            select[0].addEventListener('input', () => changeTimeRange(select[0], select[1]));
         } else {
             flag = 1;
 
@@ -50,19 +51,17 @@ export default function addTimeTemplate() {
     }
 
     function changeTimeRange(timeFrom, timeTo) {
-        timeFrom.addEventListener('input', ()=> {
-            const valueFrom = timeFrom.value.split(':');
-            const arrivalTime = `${+valueFrom[0] + 2}:${+valueFrom[1] + 30}`;
+        const valueFrom = timeFrom.value.split(':');
+        const arrivalTime = `${+valueFrom[0] + 2}:${+valueFrom[1] + 30}`;
 
-            for (let i = 0; i < timeTo.options.length; i++) {
-                timeTo.options[i].style.display = 'block';
+        for (let i = 0; i < timeTo.options.length; i++) {
+            timeTo.options[i].style.display = 'block';
 
-                if (arrivalTime > timeTo.options[i].value) {
-                    timeTo.options[i].style.display = 'none';
-                    timeTo.value = timeTo.options[i + 1].value;
-                }
+            if (arrivalTime > timeTo.options[i].value) {
+                timeTo.options[i].style.display = 'none';
+                timeTo.value = timeTo.options[i + 1].value;
             }
-        });
+        }
     }
 
     chooseTimeGroup();
