@@ -52,11 +52,12 @@ export default function addTimeTemplate() {
     function changeTimeRange(timeFrom, timeTo) {
         timeFrom.addEventListener('input', ()=> {
 
-            for (const item of timeTo.options) {
-                item.style.display = 'block';
+            for (let i = 0; i < timeTo.options.length; i++) {
+                timeTo.options[i].style.display = 'block';
 
-                if (timeFrom.value > item.value) {
-                    item.style.display = 'none';
+                if (timeFrom.value > timeTo.options[i].value) {
+                    timeTo.options[i].style.display = 'none';
+                    timeTo.value = timeTo.options[i + 1].value;
                 }
             }
         });
