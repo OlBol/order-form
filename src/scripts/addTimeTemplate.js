@@ -51,11 +51,13 @@ export default function addTimeTemplate() {
 
     function changeTimeRange(timeFrom, timeTo) {
         timeFrom.addEventListener('input', ()=> {
+            const valueFrom = timeFrom.value.split(':');
+            const arrivalTime = `${+valueFrom[0] + 2}:${+valueFrom[1] + 30}`;
 
             for (let i = 0; i < timeTo.options.length; i++) {
                 timeTo.options[i].style.display = 'block';
 
-                if (timeFrom.value > timeTo.options[i].value) {
+                if (arrivalTime > timeTo.options[i].value) {
                     timeTo.options[i].style.display = 'none';
                     timeTo.value = timeTo.options[i + 1].value;
                 }
