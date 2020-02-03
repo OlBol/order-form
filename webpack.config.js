@@ -28,6 +28,14 @@ module.exports = (env, argv) => {
         loader: 'handlebars-loader'
     };
 
+    const files = {
+        test: /\.(png|jpe?g|webp|gif|woff2?)$/i,
+        loader: 'file-loader',
+        options: {
+            name: '[hash].[ext]'
+        }
+    };
+
     const svg = {
         test: /\.svg$/,
         use: [
@@ -57,7 +65,7 @@ module.exports = (env, argv) => {
         devtool: 'source-map',
 
         module: {
-            rules: [js, handlebars, css, svg]
+            rules: [js, handlebars, css, files, svg]
         },
 
         plugins: [

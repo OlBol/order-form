@@ -1,5 +1,5 @@
-import './styles/main.css';
 import './styles/datepicker.min.css';
+import './styles/main.css';
 
 import sendForm from './scripts/sendForm';
 import addTimeTemplate from './scripts/addTimeTemplate';
