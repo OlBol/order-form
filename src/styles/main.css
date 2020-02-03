@@ -58,6 +58,11 @@
     position: relative;
 }
 
+.form__date-description {
+    margin-top: 5px;
+    font-size: 0.7rem;
+}
+
 .form__checkbox {
     position: relative;
     margin: 0;
